@@ -5,6 +5,7 @@ const postRouter = require("./routes/Postrouter");
 const uploadRouter = require("./routes/UploadRouter");
 const reactRouter = require("./routes/Reacts");
 const fileUpload = require("express-fileupload");
+const cors = require("cors")
 require("dotenv").config();
 
 // Database-connection
@@ -13,6 +14,7 @@ connect();
 // middleware
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 // for file upload
 app.use(
