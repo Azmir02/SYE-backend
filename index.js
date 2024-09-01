@@ -11,17 +11,9 @@ const cors = require("cors")
 // Database-connection
 connect();
 
+app.use(cors());
 // middleware
 const app = express();
-// Configure CORS options
-const corsOptions = {
-  origin: 'https://sye-frontend-gray.vercel.app', // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-};
-
-// Apply CORS middleware
-app.use(cors(corsOptions));
 
 app.use(express.json());
 
