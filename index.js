@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const { connect } = require("./database/dbConfig");
 const userRouter = require("./routes/UserRouter");
@@ -6,7 +7,6 @@ const uploadRouter = require("./routes/UploadRouter");
 const reactRouter = require("./routes/Reacts");
 const fileUpload = require("express-fileupload");
 const cors = require("cors")
-require("dotenv").config();
 
 // Database-connection
 connect();
@@ -16,12 +16,10 @@ const app = express();
 app.use(express.json());
 // Use CORS with specific origin
 app.use(cors());
-
-
 // for file upload
 app.use(
   fileUpload({
-    useTempFiles: true,
+    useTempFiles: false,
   })
 );
 

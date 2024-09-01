@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Code = require("../models/Code");
 const { generateCode } = require("../handaler/GenerateCode");
-const { findOne } = require("../models/Code");
+
 const mongoose = require("mongoose");
 
 exports.newuser = async (req, res) => {
@@ -84,6 +84,9 @@ exports.newuser = async (req, res) => {
     const emailToken = jwtToken({ id: User._id.toString() }, "1h");
 
     const url = `${process.env.BASE_URL}/activate/${emailToken}`;
+
+    console.log(url);
+
 
     sendEmailvarification(User.email, User.fName, url);
 

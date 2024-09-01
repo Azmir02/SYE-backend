@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 // Email-varification proccess
 
 exports.sendEmailvarification = (email, name, url) => {
+
   const stmp = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -28,7 +29,6 @@ exports.sendEmailvarification = (email, name, url) => {
 };
 
 // Sending-resetcode proccess
-
 exports.sendResetcode = (email, name, code) => {
   const stmp = nodemailer.createTransport({
     service: "gmail",
