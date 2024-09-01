@@ -13,13 +13,22 @@ connect();
 
 // middleware
 const app = express();
+// Configure CORS options
+const corsOptions = {
+  origin: 'https://sye-frontend-gray.vercel.app', // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
 app.use(express.json());
-// Use CORS with specific origin
-app.use(cors());
+
 // for file upload
 app.use(
   fileUpload({
-    useTempFiles: false,
+    useTempFiles: true,
   })
 );
 
